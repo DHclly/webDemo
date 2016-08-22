@@ -11,8 +11,7 @@ require.config({
 	shim: {
 		'ueditor': {
 			deps: [
-				'ueditor-1.4.3.3/ueditor.config',
-				'css!ueditor-1.4.3.3/themes/default/css/ueditor',
+				'ueditor-1.4.3.3/ueditor.config'
 			],
 			exports: 'UE'
 		},

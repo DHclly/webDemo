@@ -20,8 +20,13 @@ require.config({
 		}
 	}
 });
+
+//程序入口
 require(['ueditor', 'zeroclipboard', 'ueditorZhCn'], function(UE, zeroclipboard) {
 	//让ue附带的该插件能被ue调用
 	window.ZeroClipboard = zeroclipboard;
-	UE.getEditor("htmlEditor");
+	var ue = UE.getEditor("htmlEditor");
+	ue.ready(function () {
+		this.focus(true);
+	})
 });

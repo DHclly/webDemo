@@ -1,0 +1,68 @@
+.validationMessage {
+	color: #f00;
+}
+
+.customMessage {
+	color: #FFA500;
+}
+
+
+/*-----------------------------------------------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+body {
+	padding: 10px 0;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+fieldset {
+	padding: 10px;
+}
+
+strong {
+	font-weight: 700;
+}
+
+label {
+	display: inline-block;
+	width: 120px;
+}
+
+button {
+	padding: 3px 6px;
+}
+
+input,
+select {
+	width: 180px;
+	padding: 3px 6px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	outline: none;
+	margin-right: 5px;
+	transition: .3s all ease-in-out;
+}
+
+select {
+	width: 194px;
+}
+
+input:focus {
+	border: 1px solid #5579A9;
+	box-shadow: 0px 0px 4px 0px #6FA5ED;
+}
+
+.row {
+	margin-bottom: 5px;
+}
+
+.well {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: #efefef;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+}

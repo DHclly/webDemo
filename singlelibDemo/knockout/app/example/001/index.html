@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<script src="../../../lib/knockout/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../lib/knockout/knockout.validation.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../lib/knockout/validation-local/zh-CN.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<script id="customMessageTemplate" type="text/html">
+			<em class="customMessage" data-bind="validationMessage: field"></em>
+		</script>
+
+		<fieldset>
+			<legend class="well">
+				用户： <strong data-bind="text: errors().length"></strong> 个错误
+			</legend>
+
+			<div class="row">
+				<label>名:</label>
+				<input type="text" data-bind="textInput: firstName" />
+			</div>
+
+			<div class="row">
+				<label>姓:</label>
+				<input data-bind="value: lastName" />
+			</div>
+
+			<div class="row" data-bind="validationOptions: { messageTemplate: 'customMessageTemplate' }">
+				<div class="row">
+					<label>电子邮件:</label>
+					<input data-bind="value: emailAddress" required="required" pattern="@" />
+				</div>
+				<div class="row">
+					<label>位置:</label>
+					<input data-bind="value: location" />
+				</div>
+				<div class="row">
+					<label>年龄:</label>
+					<input data-bind="value: age" required="required" />
+				</div>
+			</div>
+
+			<div class="row">
+				<label>订阅:</label>
+				<select data-bind="value: subscription, options: subscriptionOptions, optionsCaption: '请选择...'"></select>
+			</div>
+
+			<div class="row">
+				<label>密码:</label>
+				<input data-bind="value: password" type="password" />
+			</div>
+
+			<div class="row">
+				<label>确认密码:</label>
+				<input data-bind="value: confirmPassword" type="password" />
+			</div>
+
+			<div class="row">
+				<label>验证码：10 + 1 = </label>
+				<input data-bind='value: captcha' required="required"/>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<button type="button" data-bind='click: submit'>提交</button> &nbsp;
+			<button type="button" data-bind='click: reset'>重置</button> &nbsp;
+			<button type="button" data-bind='click: requireLocation'>使 位置 变为必填</button>
+		</fieldset>
+
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

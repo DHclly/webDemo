@@ -21,18 +21,18 @@ ko.validation.init({
 	// 当鼠标悬浮在input字段上时显示错误(decorateElement必须为true)
 	errorsAsTitleOnModified: false,
 	//指定你的viewModel是否使用h5的验证规则
-	parseInputAttributes false,
+	parseInputAttributes: false,
 	//添加h5的验证属性到进行了ko绑定的表单元素
-	writeInputAttributes false,
+	writeInputAttributes: false,
 	//指示是否只有当属性被修改或在任何时间都被触发时，
 	//验证消息是否被触发
-	messagesOnModified true,
+	messagesOnModified: true,
 	//指示是否只有当属性被修改或在任何时间都被触发时，
 	//css错误样式被触发
-	decorateElementOnModified true,
+	decorateElementOnModified: true,
 	//你想用于所有验证信息的模板id
 	//<script id="xx" type="text/html"></script>
-	messageTemplate null,
+	messageTemplate: null,
 	//允许验证消息为html代码
 	allowHtmlMessages: false,
 	//当使用 group 或 validatedObservable 功能时
@@ -45,8 +45,8 @@ ko.validation.init({
 		live: false
 	},
 	//允许注册自定义验证规则通过ko.validation.rules定义
-	registerExtenders:true,
-	validate:{
+	registerExtenders: true,
+	validate: {
 		// throttle: 10
 	}
-});
+}, true);

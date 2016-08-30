@@ -1,0 +1,8 @@
+.error {
+	border: 2px solid red;
+}
+
+input {
+	border: 1px solid #AAA;
+	padding: 4px;
+}

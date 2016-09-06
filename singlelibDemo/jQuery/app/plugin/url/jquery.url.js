@@ -5,7 +5,6 @@
 		 * 实现像后端一样，通过request对象获取get请求传递的参数
 		 */
 		"getRequest": function() {
-			debugger;
 			var search = location.search; //获取url中"?"符后的字串
 			var request = new Object();
 			if(search.indexOf("?") != -1) {

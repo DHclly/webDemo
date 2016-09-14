@@ -1,0 +1,69 @@
+.title {
+	text-align: center;
+}
+
+.trans {
+	/*transition*/
+	-webkit-transition: 0.3s ease;
+	-moz-transition: 0.3s ease;
+	-ms-transition: 0.3s ease;
+	-o-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+.test_outer {
+	width: 320px;
+	height: 480px;
+	margin: 1em auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.test_cover {
+	width: 60px;
+	height: 60px;
+	border: 480px solid rgba(0, 0, 0, .45);
+	border-radius: 50%;
+	position: absolute;
+}
+
+.test_cover_pos1 {
+	left: -227px;
+	top: -478px;
+}
+
+.test_cover_pos1:after {
+	content: '☺首先选择您所在的城市';
+	margin: 16px 0 0 -140px;
+}
+
+.test_cover_pos2 {
+	left: -447px;
+	top: -378px;
+}
+
+.test_cover_pos2:after {
+	width: 140px;
+	content: '☺全新推图订餐服务，给你不一样的体验！';
+	margin: 16px 0 0 60px;
+}
+
+.test_cover_pos3 {
+	left: -337px;
+	top: -48px;
+}
+
+.test_cover_pos3:after {
+	content: '☺随时拨打订餐！';
+	margin: -20px 0 0 -20px;
+	white-space: nowrap;
+}
+
+.test_cover_pos1:after,
+.test_cover_pos2:after,
+.test_cover_pos3:after {
+	color: #fff;
+	font-family: '微软雅黑';
+	text-shadow: 1px 1px rgba(0, 0, 0, .35);
+	position: absolute;
+}

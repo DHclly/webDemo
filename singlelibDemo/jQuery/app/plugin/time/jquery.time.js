@@ -39,6 +39,20 @@
 				}
 				return returnVal;
 			},
+			"parseToTimeFormat": function(timeStamp,format) {
+				var returnVal = null;
+				if(timeStamp) {
+					if(new Date(timeStamp).toString() === "Invalid Date") {
+						returnVal = "传入的数据不对，应为正整数";
+					} else {
+						returnVal = new Date(timeStamp).toLocaleString();
+					}
+
+				} else {
+					returnVal = new Date().toLocaleString();
+				}
+				return returnVal;
+			},
 			"getDate": function() {
 				return new Date().toLocaleDateString();
 			},

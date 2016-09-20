@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "name": "gulp",
+  "version": "1.0.0",
+  "description": "gulp demo ",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DHclly",
+  "license": "ISC"
+}

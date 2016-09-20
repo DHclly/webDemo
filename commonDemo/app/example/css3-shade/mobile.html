@@ -18,14 +18,15 @@
 		(function(stepIndex) {
 			var objStep = document.getElementById("testCover");
 			var funStep = function() {
+				debugger;
 				objStep.className = objStep.className.replace(/\d/, (stepIndex + 1));
 				stepIndex++;
 				if(stepIndex > 2) {
 					stepIndex = 0;
 				}
-				setTimeout(funStep, 3000);
+				setTimeout(funStep, 1000);
 			};
-			setTimeout(funStep, 3000);
+			setTimeout(funStep, 1000);
 		})(1);
 	</script>
 

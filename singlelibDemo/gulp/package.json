@@ -1,6 +1,12 @@
 {
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.0.0",
+    "stream-combiner2": "^1.1.1",
+    "vinyl-paths": "^2.1.0",
+    "watchify": "^3.7.0"
   },
   "name": "gulp",
   "version": "1.0.0",

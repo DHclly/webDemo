@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>getComputedStyle</title>
+		<style type="text/css">
+			/*#box{
+				
+			}*/
+		</style>
+	</head>
+	<body>
+		<p><code>getComputedStyle("元素", "伪类")</code></p>
+		<div id="box"></div>
+		<script type="text/javascript">
+		var box = document.querySelector('#box');
+		console.log('box.style.length:'+box.style.length);
+		console.log(box.style);
+		console.log('getComputedStyle.length:'+getComputedStyle(box,null).length);
+		var d = getComputedStyle(box,null);
+		console.log(d);
+		</script>
+	</body>
+</html>

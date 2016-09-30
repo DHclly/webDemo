@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML5自定义属性对象Dataset</title>
+	</head>
+	<body>
+		<header><h1>HTML5自定义属性对象Dataset</h1></header>
+		
+		<p id="content" data-id = "123" data-name = "content" data-color = "red">hello world</p>
+		<p id="result"></p>
+		<script type="text/javascript">
+			var content = document.getElementById('content');
+			var result = document.querySelector('#result');
+			result.innerHTML=content.dataset.color;
+			console.log(content.dataset);
+		</script>
+	</body>
+</html>

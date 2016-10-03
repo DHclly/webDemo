@@ -43,14 +43,15 @@ function filterChapters(html) {
     formatOutput(courseData);
 }
 function formatOutput(courseData) {
+    var returnList='';
     courseData.forEach(function (val, index) {
-        console.log(val.title);
-        var list ="";
+        var list ='\n'+val.title+"\n\n";
         val.courseList.forEach(function (val, index) {
-            list+='\t[id:'+val.id+']\t';
-            list+=val.subTitle;
-            list+='[time:'+val.time+']\n';
+            list+='[id:'+val.id+'] ';
+            list+='[time:'+val.time+']\t';
+            list+=val.subTitle+'\n';
         });
-        console.log(list);
+        returnList+=list;
     });
+    console.log(returnList);
 }

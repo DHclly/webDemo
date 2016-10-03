@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h1>jquery 的 attr 和 prop 对 checkbox 的影响</h1>
+		<input type="checkbox" id="ckbox" />
+		<hr /> checkbox标签的状态：
+		<p id="result" style="border: 1px dotted lightskyblue;"></p>
+		checkbox选中状态：
+		<p id="state"></p>
+		<hr />
+		<input type="button" name="" id="btn1" value="prop checked" />
+		<input type="button" name="" id="btn2" value="prop unchecked" />
+		<input type="button" name="" id="btn3" value="attr checked" />
+		<input type="button" name="" id="btn4" value="attr unchecked" />
+		<hr />
+		<p>
+			总结：通过实验发现，attr属性只有在刚刷新页面后第一次有效，符合在标签上设置了checked之后，第一次(默认)为选中状态。
+		</p>
+		<script src="../../../lib/jquery/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $btn1 = $("#btn1"),
+				$btn2 = $("#btn2"),
+				$btn3 = $("#btn3"),
+				$btn4 = $("#btn4"),
+				$ckbox = $("#ckbox"),
+				$result = $("#result"),
+				$state = $("#state");
+			$btn1.click(function() {
+				$($ckbox).prop("checked", true);
+				var html = $ckbox.get(0).outerHTML;
+				var state = $ckbox.get(0).checked;
+				$result.text(html);
+				$state.text(state);
+			});
+			$btn2.click(function() {
+				$($ckbox).prop("checked", false);
+				var html = $ckbox.get(0).outerHTML;
+				var state = $ckbox.get(0).checked;
+				$result.text(html);
+				$state.text(state);
+			});
+			$btn3.click(function() {
+				$($ckbox).attr("checked", "checked");
+				var html = $ckbox.get(0).outerHTML;
+				var state = $ckbox.get(0).checked;
+				$result.text(html);
+				$state.text(state);
+			});
+			$btn4.click(function() {
+				$($ckbox).attr("checked", null);
+				var html = $ckbox.get(0).outerHTML;
+				var state = $ckbox.get(0).checked;
+				$result.text(html);
+				$state.text(state);
+			});
+		</script>
+	</body>
+
+</html>

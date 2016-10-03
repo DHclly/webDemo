@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<script src="../../../lib/knockout/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../lib/knockout/knockout.validation.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../lib/knockout/validation-local/zh-CN.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<form action="" method="post">
+			<input id="txtFirstName" type="text" data-bind="value:firstName, css: { error: !firstNameIsValid()}, event: {blur: ChecktFirstNameIsValid}" />
+			<input id="txtLastName" type="text" data-bind="value:lastName, css: { error: !lastNameIsValid()}, event: {blur: ChecktLastNameIsValid}" />
+			<button id="btn" data-bind="click:SubmitClick">提交</button>
+		</form>
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

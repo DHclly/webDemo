@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>iframe-tab-独行冰海</title>
+    <style>
+        html,body,div,span,iframe{
+            margin: 0;
+            padding: 0;
+            font: "微软雅黑";
+        }
+        .tit{
+            width: 300px;
+            height: 40px;
+            text-align: center;
+        }
+        .tit span{
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background: #cfc;
+            cursor: hand;
+            cursor: pointer;
+        }
+        .tit .select{
+            background: #9f9;
+        }
+        .con{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class='tit' id="tabTit">
+        <span class='select'>标题1</span>
+        <span>标题2</span>
+        <span>标题3</span>
+    </div>
+    <iframe class='con' src="m1.html" frameborder="0" id="tabCon"></iframe>
+</body>
+<script>
+    var btns = document.getElementById('tabTit').getElementsByTagName('span');
+    var tabCon = document.getElementById('tabCon');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].index = i;
+        btns[i].onclick = function(){
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].className = '';
+            };
+            this.className = 'select';
+            tabCon.src = 'm'+(this.index+1)+'.html';
+            // 进行高度控制和处理
+            setTimeout(function(){
+                tabCon.style.height = tabCon.contentWindow.document.body.offsetHeight+'px';
+                console.log(tabCon.contentWindow.document.body.offsetHeight);
+            },100);
+        }
+    };
+    
+</script>
+</html>

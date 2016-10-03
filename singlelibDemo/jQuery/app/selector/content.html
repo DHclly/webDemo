@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="content.css" type="text/css">
+    <script src="../../lib/jquery/jquery-1.11.3.js"></script>
+</head>
+
+<body>
+    <h2>内容筛选器</h2>
+    <h3>:contains/:has</h3>
+    <div class="left">
+        <div class="div">
+            <p>:contains</p>
+        </div>
+        <div class="div">
+            <p>:contains</p>
+        </div>
+        <div class="div">
+            <p>
+                <span>:has</span>
+            </p>
+        </div>
+        <div class="div">
+            <p>:contains</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //查找所有class='div'中DOM元素中包含"contains"的元素节点
+        //并且设置颜色
+        $(".div:contains(contains)").css("color", "#CD00CD");
+    </script>
+
+    <script type="text/javascript">
+        //查找所有class='div'中DOM元素中包含"span"的元素节点
+        //并且设置颜色
+        $(".div:has(span)").css("color", "blue");
+    </script>
+
+
+    <h3>:parent/:empty</h3>
+    <div class="left">
+        <div class="aaron">
+            <a>:parent</a>
+        </div>
+        <div class="aaron">
+            <a>:parent</a>
+        </div>
+        <div class="aaron">
+            <a>:parent</a>
+        </div>
+        <div class="aaron">
+            <a></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+       //选择所有包含子元素或者文本的a元素
+       //增加一个蓝色的边框
+       $("a:parent").css("border", "3px groove blue");
+    </script>
+
+    <script type="text/javascript">
+       //找到a元素下面的所有空节点(没有子元素)
+       //增加一段文本与边框
+       $("a:empty").text(":empty").css("border", "3px groove red"); 
+    </script>
+
+</body>
+
+</html>

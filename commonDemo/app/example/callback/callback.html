@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>回调函数</title>
+	</head>
+
+	<body>
+		<p id="content"></p>
+		<p id="state">nothing</p>
+		<input type="button" id="btn1" value="问好" />
+		<input type="button" id="btn2" value="不问好" />
+
+		<script type="text/javascript">
+			var content = document.getElementById("content"),
+				state = document.getElementById("state"),
+				btn1 = document.getElementById("btn1"),
+				btn2 = document.getElementById("btn2");
+
+			function greet(isgreet, callback) {
+				if(isgreet) {
+					content.innerHTML = "你好。";
+					state.innerHTML = "向你问好";
+				} else {
+					content.innerHTML = "...,哼哼";
+					state.innerHTML = "向你哼哼";
+				}
+				content.innerHTML+="<hr />开始执行回调函数..."
+				if(callback) {
+					callback(isgreet);
+				}
+				content.innerHTML+="<hr />回调函数执行完毕..."
+			}
+
+			function result(isgreet) {
+				if(isgreet) {
+					content.innerHTML += "<br/>很高兴你向我问好，我颜色都变了^-^";
+					document.body.style.background = "#31B0D5";
+				} else {
+					content.innerHTML += "<br/>很不高兴你不向我问好，T-T";
+					document.body.style.background = "#fff";
+				}
+
+			}
+			btn1.onclick = function() {
+				greet(true, result);
+			};
+			btn2.onclick = function() {
+				greet(false, result);
+			};
+		</script>
+	</body>
+
+</html>

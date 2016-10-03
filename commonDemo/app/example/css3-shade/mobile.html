@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3下的圆形遮罩效果实例页面</title>
+		<link rel="stylesheet" type="text/css" href="mobile.css" />
+	</head>
+
+	<body>
+		<h1 class="title">CSS3下的圆形遮罩效果实例页面</h1>
+		<div class="test_outer">
+			<span id="testCover" class="test_cover test_cover_pos1 trans"></span>
+			<img src="radius_cover_wap_bg.png" width="320" height="480" border="0" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		(function(stepIndex) {
+			var objStep = document.getElementById("testCover");
+			var funStep = function() {
+				debugger;
+				objStep.className = objStep.className.replace(/\d/, (stepIndex + 1));
+				stepIndex++;
+				if(stepIndex > 2) {
+					stepIndex = 0;
+				}
+				setTimeout(funStep, 1000);
+			};
+			setTimeout(funStep, 1000);
+		})(1);
+	</script>
+
+</html>

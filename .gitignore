@@ -1,3 +1,3 @@
-lib
-node_modules
+﻿#真正要屏蔽掉的是一些缓存文件，其他的通过不要忽略
+.project
 test

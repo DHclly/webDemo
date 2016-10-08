@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			setInterval(function() {
+				var isShine =true;
+				var title = document.title;
+				if(isShine == true) {
+					if(/新/.test(title) == false) {
+						document.title = '【新消息】';
+					} else {
+						document.title = '【　　　】';
+					}
+				} else {
+					document.title = titleInit;
+				}
+			}, 500);
+			//空格编码为Unicode12888
+			var txt = "　　　";
+			for(var i =0;i<txt.length;i++){
+				console.log(txt.charCodeAt(i));
+			}
+		</script>
+	</body>
+
+</html>

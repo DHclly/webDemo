@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>call_apply_callee_caller</title>
+	</head>
+
+	<body>
+		<h1>call_apply_callee_caller</h1>
+		<script type="text/javascript">
+			function Pet(name, type) {
+				console.log("调用Pet函数中...");
+				console.log("输出传入的参数：");
+				console.log(Pet.arguments);
+				console.log("输出传入的参数的长度：" + Pet.arguments.length);
+				this.name = name;
+				this.type = type;
+				this.thirdParam = Pet.arguments[2];
+				this.eat = function(foodName) {
+					console.log('I like to eat ' + foodName + '.');
+				}
+				this.speak = function() {
+					console.log("my name is" + name + ", I'm a" + type + '.');
+				}
+			}
+			/**说明arguments不是数组(Array类)的代码
+			Array.prototype.customVal=1;
+			console.log(new Array().selfvalue);
+			function test () {
+				alert(arguments.customVal);
+			}
+			test();
+			*/
+			function argumentTest(paramA, paramB) {
+				var argsInfact = arguments.length;
+				var argsExpected = argumentTest.length;
+				var str = "方法ArgumentTest希望有" + argsExpected + "个参数，实际上传进来" + argsInfact + "个参数。\n";
+				for(var i = 0; i < argsInfact; i++) {
+					str += "参数-" + i + "=" + arguments[i] + "\n";
+				}
+				return(str);
+			}
+
+			function callerDemo() {
+				//如果函数是由顶层调用的，那么 caller 包含的就是 null 。
+				//如果在字符串上下文中使用 caller 属性，那么结果和
+				//functionName.toString 一样，也就是说，显示的是函数
+				//的反编译文本
+				if(callerDemo.caller) {
+					console.log("callerDemo函数的调用函数:" + callerDemo.caller.name);
+					console.log("函数体：");
+					console.log(callerDemo.caller);
+				} else {
+					console.log("在window对象上调用该方法");
+				}
+			}
+
+			function handelCaller() {
+				callerDemo();
+			}
+			/*
+			 *  callee 属性是 arguments 对象的一个成员，它表示对函数对象本身的引用
+			 */
+			function calleeDemo() {
+				console.log("callee:");
+				console.log(arguments.callee.name);
+				console.log(calleeDemo.arguments.callee.name);
+			}
+
+			function calleeArgsLengthDemo(arg1, arg2) {
+				if(arguments.length === arguments.callee.length) {
+					console.log("验证形参和实参长度正确！");
+					return;
+				} else {
+
+				}
+			}
+			//递归计算
+			var sum = function(n) {
+					if(n <= 0)
+						return 1;
+					else
+						arguments.callee(n - 1)
+				}
+				//////////////////////////////////////////////////////////
+				//			var doge = new Pet('doge', 'dog');
+				//			var luck = new Pet('luck', 'dog', 'fat');
+				//			console.log(argumentTest('a'));
+				//			console.log(argumentTest('a','b'));
+				//			console.log(argumentTest('a','b','c'));
+				//			callerDemo();
+				//			handelCaller();
+			calleeDemo();
+		</script>
+	</body>
+
+</html>

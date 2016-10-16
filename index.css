@@ -1,0 +1,41 @@
+fieldset {
+	border: 4px double #757575;
+}
+
+ul {
+	margin: 10px 0 0 20px;
+	padding: 0;
+}
+li{
+	color: dodgerblue;
+}
+li:hover {
+	background-color: #EEEEEE;
+	color: #008200;
+}
+
+li:hover:after {
+	display: inline-block;
+	content: "open";
+	width: 50px;
+	color: #fff;
+	;
+	height: 15px;
+	line-height: 13px;
+	text-align: center;
+	background-color: #6cf;
+	border-radius: 10px;
+}
+
+a,
+a:active,
+a:visited {
+	text-decoration: none;
+	color: #757575;
+}
+.title{
+	margin: 10px;
+	text-align: center;
+	border-left: 1px solid brown;
+	border-right: 1px solid brown;
+}

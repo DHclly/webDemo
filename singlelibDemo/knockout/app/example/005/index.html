@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<script src="../../../lib/knockout/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<section>
+			选择一个航班:
+			<select data-bind="options:tickets,optionsCaption:'请选择...',optionsText:'name',value:chosenTicket">
+
+			</select>
+			<button data-bind="click:resetTicket">清除</button>
+			<p data-bind="with:chosenTicket">
+				您选择了 <b data-bind="text:name"></b>($ <span data-bind="text:price"></span>)
+			</p>
+		</section>
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

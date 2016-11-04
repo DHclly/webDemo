@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>逐字打印</title>
+	</head>
+
+	<body>
+		<h1>各种商</h1>
+		<p id="content">智商<b>（Intelligence Quotient）</b>智力是遗传基因控制的，人为无法改变。 由于先天多种因素，人的智力发育会有所不同。通过一系列标准测试测量人在其年龄段的 智力发展水平，它必须与灵商（SQ)配合运用才行。它是人们认识客观事物并运用知识解 决实际问题的能力。智力表现多个方面，如<i>观察力、记忆力、想象力、创造力、分析判断 能力、思维能力、应变能力、推理能力等，其包括文商（CQ）</i>。目前认为智力由三种能力 组成：短期记忆力、推理能力和语言能力。
+		</p>
+		<script type="text/javascript">
+			var element = document.querySelector("#content");
+			printChar(element, 20);
+
+			/**
+			 * @param {Object} ele
+			 * @param {Number} speed
+			 */
+			function printChar(ele, speed) {
+				var content = ele.innerText,
+					fullContent = ele.innerHTML,
+					len = ele.innerText.length;
+				ele.innerText = "";
+				var newContent = "";
+				var i = 0;
+				var timer = setInterval(function() {
+					newContent += content.substr(i++, 1);
+					ele.innerText = newContent;
+					if(i === len) {
+						ele.innerHTML = fullContent;
+						clearInterval(timer);
+					}
+				}, speed);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>拖拽模块</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+			.box {
+				width: 200px;
+				height: 200px;
+				background: green;
+				position: absolute;
+				opacity: 1;
+			}
+			
+			.box:hover {
+				cursor: pointer;
+				opacity: 0.7;
+			}
+			
+			.draggable {}
+		</style>
+	</head>
+
+	<body>
+		<h1>可拖拽模块</h1>
+		<div id="dialog" class="box draggable"></div>
+		<script type="text/javascript">
+			var dialog = document.getElementById("dialog");
+			var disX = 0;
+			var disY = 0;
+			var mousemove = function(event) {
+				debugger;
+				var left = event.clientX - disX;
+				var top = event.clientY - disY;
+				var windowW = document.documentElement.clientWidth || document.body.clientWidth;
+				var windowH = document.documentElement.clientHeight || document.body.clientHeight;
+				var maxW = windowW - dialog.offsetWidth - 10; //10为滚动条
+				var maxH = windowH - dialog.offsetHeight;
+				if(left < 0) {
+					left = 0;
+				} else if(left > maxW) {
+					left = maxW;
+				}
+				if(top < 0) {
+					top = 10;
+				} else if(top > maxW) {
+					top = maxH;
+				}
+				dialog.style.left = left + "px";
+				dialog.style.top = top + "px";
+			}
+			var mouseup = function(event) {
+				this.removeEventListener("mousemove", mousemove, false);
+				this.removeEventListener("mouseup", mouseup, false);
+			}
+			var mousedown = function(event) {
+				event = event || window.event;
+				//计算光标和拖动块左上角的距离
+				disX = event.clientX - dialog.offsetLeft;
+				disY = event.clientY - dialog.offsetTop;
+				this.addEventListener("mousemove", mousemove, false);
+				this.addEventListener("mouseup", mouseup, false);
+			};
+			dialog.addEventListener("mousedown", mousedown, false);
+		</script>
+	</body>
+
+</html>

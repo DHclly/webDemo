@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>knockoutjs example list</title>
-    <link rel="stylesheet" type="text/css" href="../../index.css"/>
-  </head>
-  <body>
-    <fieldset>
-      <legend>示例列表</legend>
-      <ul>
-      	<li><a href="app/example/001/index.html" target="_blank">001 表单验证</a></li>
-      	<li><a href="app/example/002/index.html" target="_blank">002 h5验证</a></li>
-      	<li><a href="app/example/003/index.html" target="_blank">003 初始化选项demo(有错)</a></li>
-      	<li><a href="app/example/004/index.html" target="_blank">004 显示和重置消息demo</a></li>
-      	<li><a href="app/example/005/index.html" target="_blank">005 机票选择demo</a></li>
-      </ul>
-    </fieldset>
-  </body>
+<html id="all">
+
+	<head>
+		<meta charset="utf-8">
+		<title data-bind = "text:'hi'">knockoutjs example list</title>
+		<link rel="stylesheet" type="text/css" href="../../index.css" />
+	</head>
+
+	<body>
+		<fieldset>
+			<legend>示例列表(<!-- ko text : list.length--><!-- /ko-->)</legend>
+			<ul>
+				<!-- ko foreach : list-->
+				<li>
+					<a data-bind="text:$root.getIndex()+' '+text,attr:{href:href}" target="_blank"></a>
+				</li>
+				<!-- /ko-->
+			</ul>
+		</fieldset>
+		<script src="../../lib/knockout-3.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function viewModel() {
+				this.list = [{
+					href: "app/example/001/index.html",
+					text: "表单验证"
+				}, {
+					href: "app/example/002/index.html",
+					text: "h5验证"
+				},{
+					href: "app/example/003/index.html",
+					text: "初始化选项demo(有错)"
+				},{
+					href: "app/example/004/index.html",
+					text: "显示和重置消息demo"
+				},{
+					href: "app/example/005/index.html",
+					text: "机票选择demo"
+				},];
+				this.index = 0;
+				this.getIndex = function() {
+					this.index=this.index+1;
+					if(this.index < 10) return '00' + (this.index);
+					if(this.index < 100) return '0' + (this.index);
+					return this.index;
+				}
+			}
+			ko.applyBindings(new viewModel());
+		</script>
+	</body>
+
 </html>
